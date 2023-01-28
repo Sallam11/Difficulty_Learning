@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Difficulty_Learning.Models.Category_Course>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Categories Courses</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-info">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryCourse_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryCourse_Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryCourse_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryCourse_Name)
+            </td>
+            <td>
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryCourse_ID }, htmlAttributes: new { @class = "btn btn-info" }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.CategoryCourse_ID }, htmlAttributes: new { @class = "btn btn-info" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
